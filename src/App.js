@@ -1,7 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Getnft from "./pages/GetNFT/Getnft";
+import Getnft from "./pages/GetNFT/GetNFT";
 import Mycollection from "./pages/Mycollection";
 import Yournft from "./pages/Yournft";
 import HeaderComponent from "./Components/Header";
