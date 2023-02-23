@@ -156,14 +156,12 @@ const Enterotp = () => {
                   </div>
                 </form>
               </div>
-              <Link to="/mycollection" className="mx-auto">
-                <button
-                  className="bg-[#db7c26] mb-0 mt-5 py-2 inline w-[150px] rounded-3xl mx-auto  font-bold text-lg"
-                  onClick={verifyOtp}
-                >
-                  Confirm
-                </button>
-              </Link>
+              <button
+                className="bg-[#db7c26] mb-0 mt-5 py-2 inline w-[150px] rounded-3xl mx-auto  font-bold text-lg"
+                onClick={verifyOtp}
+              >
+                Confirm
+              </button>
               <button
                 className="bg-[#dbc926] my-5 py-2 inline w-[150px] rounded-3xl mx-auto  font-bold text-lg"
                 onClick={reSendOtp}
