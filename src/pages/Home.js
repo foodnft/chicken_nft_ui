@@ -1,7 +1,6 @@
 import React from "react";
-import chicken from "../images/chicken.svg";
-import mail from "../images/mail.svg";
-import telegram from "../images/telegram.svg";
+import { Link } from "react-router-dom";
+
 import bglayer from "../images/bglayer.svg";
 import banner from "../images/banner.png";
 import banner2 from "../images/banner2.png";
@@ -9,16 +8,14 @@ import chicken1 from "../images/chicken1.png";
 import chicken2 from "../images/chicken2.png";
 import chicken3 from "../images/chicken3.png";
 import arrowdown from "../images/arrowdown.svg";
-import { Link } from "react-router-dom";
-// import Header from "../components/Header";
-// import Footer from "../components/Footer";
+import Header from "../Component/Header";
+import Footer from "../Component/Footer";
 
 const Home = () => {
   return (
     <div className="max-w-[480px] mx-auto min-h-[100vh] overflow-x-hidden  ">
       <div className="relative ">
-        {/* <Header /> */}
-
+        <Header />
         <div className="w-[100%] relative z-0 bg-[#F9DC5C] p-2 ">
           <img
             alt=""
@@ -93,7 +90,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );

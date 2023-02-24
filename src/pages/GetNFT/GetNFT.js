@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import bglayer from "../../images/bglayer.svg";
 import { asyncApiCall } from "../../Axios";
+import Header from "../../Component/Header";
+import Footer from "../../Component/Footer";
 
 import "./style.scss";
 
@@ -52,11 +54,11 @@ const Getnft = () => {
     asyncApiCall(url)
       .then((res) => {
         if (res.status === 200) {
-          setShowInput(false);
-          startTimer();
+          navigate("/enterotp");
         }
       })
       .catch((err) => {
+        // navigate("/enterotp");
         console.log(err);
       });
   };
@@ -117,6 +119,7 @@ const Getnft = () => {
   return (
     <div className="max-w-[480px] mx-auto min-h-[100vh]  overflow-x-hidden  ">
       <div className="relative overflow-hidden">
+        <Header />
         <div className="relative z-0 bg-[#F9DC5C] p-2 h-[920px]">
           <img
             alt=""
@@ -229,6 +232,7 @@ const Getnft = () => {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );

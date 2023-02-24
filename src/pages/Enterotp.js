@@ -1,15 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import Header from "../Component/Header";
 import Footer from "../Component/Footer";
 import bglayer from "../images/bglayer.svg";
-import Success from "../images/Success.svg";
 import { asyncApiCall } from "../Axios";
 
 const Enterotp = () => {
-  const [resendTimer, setResendTimer] = useState(5);
+  const [resendTimer, setResendTimer] = useState(60);
   const [otpValue, setOtpValue] = useState("");
   const [otpValue1, setOtpValue1] = useState("");
   const [otpValue2, setOtpValue2] = useState("");
@@ -77,6 +76,7 @@ const Enterotp = () => {
         }
       })
       .catch((err) => {
+        // navigate("/myCollection");
         console.log(err);
       });
   };
