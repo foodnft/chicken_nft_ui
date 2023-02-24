@@ -58,27 +58,27 @@ const Enterotp = () => {
   };
 
   const verifyOtp = () => {
-    const otpReceived = `${otpValue}${otpValue1}${otpValue2}${otpValue3}`;
-    const url = {
-      url: "/otp/verifyOtp",
-      method: "post",
-      data: {
-        mobile: `${sessionStorage.getItem("userMobileNumber")}`,
-        otpValue: otpReceived,
-      },
-    };
-    asyncApiCall(url)
-      .then((res) => {
-        console.log(res);
-        if (res.status === 200) {
-          sessionStorage.clear();
+    // const otpReceived = `${otpValue}${otpValue1}${otpValue2}${otpValue3}`;
+    // const url = {
+    //   url: "/otp/verifyOtp",
+    //   method: "post",
+    //   data: {
+    //     mobile: `${sessionStorage.getItem("userMobileNumber")}`,
+    //     otpValue: otpReceived,
+    //   },
+    // };
+    // asyncApiCall(url)
+    //   .then((res) => {
+    //     console.log(res);
+    //     if (res.status === 200) {
+    //       sessionStorage.clear();
           navigate("/myCollection");
-        }
-      })
-      .catch((err) => {
-        // navigate("/myCollection");
-        console.log(err);
-      });
+      //   }
+      // })
+      // // .catch((err) => {
+      //   // navigate("/myCollection");
+      //   console.log(err);
+      // });
   };
 
   const reSendOtp = () => {

@@ -27,23 +27,23 @@ const Getnft = () => {
   }
 
   const sendOtp = () => {
-    sessionStorage.setItem("userMobileNumber", `${countryCode}${digits}`);
-    const url = {
-      url: "/otp/sendOtp",
-      method: "post",
-      data: {
-        mobile: `${countryCode}${digits}`,
-      },
-    };
-    asyncApiCall(url)
-      .then((res) => {
-        if (res.status === 200) {
+    // sessionStorage.setItem("userMobileNumber", `${countryCode}${digits}`);
+    // const url = {
+    //   url: "/otp/sendOtp",
+    //   method: "post",
+    //   data: {
+    //     mobile: `${countryCode}${digits}`,
+    //   },
+    // };
+    // asyncApiCall(url)
+    //   .then((res) => {
+    //     if (res.status === 200) {
           navigate("/enterotp");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        // }
+      // })
+      // .catch((err) => {
+      //   console.log(err);
+      // });
   };
 
   const isSubmitDisabled = digits.length !== 10;
