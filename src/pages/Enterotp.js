@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 import Header from "../Component/Header";
 import Footer from "../Component/Footer";
@@ -15,7 +14,6 @@ const Enterotp = () => {
   const [otpValue3, setOtpValue3] = useState("");
 
   const optResendTimer = useRef();
-
   const navigate = useNavigate();
 
   const handleKeyPress = (event, index) => {
@@ -40,6 +38,7 @@ const Enterotp = () => {
       }
     }
   };
+
   useEffect(() => {
     if (resendTimer === 0) {
       clearInterval(optResendTimer.current);
@@ -98,23 +97,21 @@ const Enterotp = () => {
   };
 
   return (
-    <div className="max-w-[480px] mx-auto min-h-[100vh] overflow-x-hidden  ">
+    <div className="max-w-[480px] mx-auto min-h-[100vh] overflow-x-hidden">
       <div className="relative ">
         <Header />
         <div className="relative z-0 bg-[#F9DC5C] p-2 h-[920px]">
           <img
             src={bglayer}
-            className="w-[100%] absolute top-0 bottom-0 z-[-1] "
+            className="w-[100%] absolute top-0 bottom-0 z-[-1]"
           ></img>
-
           <h1 className="text-[2.4rem] text-center font-bold my-6">
             Enter OTP
           </h1>
-          <div className="h-[50vh] w-[92%] mx-auto bg-black mt-20 my-2 rounded-xl relative  flex flex-col justify-center ">
+          <div className="h-[50vh] w-[92%] mx-auto bg-black mt-20 my-2 rounded-xl relative  flex flex-col justify-center">
             <div
               style={{ padding: "20px" }}
-              className="relative top-0 h-[100vh] flex flex-col bg-black rounded-xl drop-shadow-xl
-"
+              className="relative top-0 h-[100vh] flex flex-col bg-black rounded-xl drop-shadow-xl"
             >
               <h2 className="text-[#fdf523] text-2xl  my-10 text-center mx-2 font-bold">
                 Collect the Tastiest <br /> Chicken NFTs
@@ -175,7 +172,6 @@ const Enterotp = () => {
             </div>
           </div>
         </div>
-
         <Footer />
       </div>
     </div>
