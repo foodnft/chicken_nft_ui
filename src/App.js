@@ -20,7 +20,7 @@ function App() {
         <Route path="/mycollection" element={<Mycollection />} />
         <Route path="/yournft" element={<Yournft />} />
       </Routes>
-      {pathname === "/" && <FooterComponent />}
+      <FooterComponent />
     </>
   );
 }

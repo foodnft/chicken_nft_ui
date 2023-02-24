@@ -6,8 +6,8 @@ import chicken from "../images/chicken.svg";
 import mail from "../images/mail.svg";
 import telegram from "../images/telegram.svg";
 import bglayer from "../images/bglayer.svg";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 import { asyncApiCall } from "../Axios";
 
 const Getnft = () => {
@@ -87,7 +87,6 @@ const Getnft = () => {
                   ></input>
                 </form>
               </div>
-              {/* <Link to="/enterotp" className="mx-auto"> */}
               <button
                 className="bg-[#db7c26] my-10 py-2 inline w-[150px] rounded-3xl mx-auto  font-bold text-lg"
                 disabled={isSubmitDisabled}
@@ -95,7 +94,6 @@ const Getnft = () => {
               >
                 Send OTP
               </button>
-              {/* </Link> */}
             </div>
           </div>
         </div>
