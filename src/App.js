@@ -4,8 +4,8 @@ import Home from "./pages/Home";
 import Getnft from "./pages/GetNFT/GetNFT";
 import Mycollection from "./pages/Mycollection";
 import Yournft from "./pages/Yournft";
-import HeaderComponent from "./Components/Header";
-import FooterComponent from "./Components/Footer";
+import HeaderComponent from "./Component/Header";
+import FooterComponent from "./Component/Footer";
 
 import "./App.css";
 

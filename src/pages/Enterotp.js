@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
+import Header from "../Component/Header";
+import Footer from "../Component/Footer";
 import bglayer from "../images/bglayer.svg";
 import Success from "../images/Success.svg";
 import { asyncApiCall } from "../Axios";

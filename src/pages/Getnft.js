@@ -6,8 +6,8 @@ import chicken from "../images/chicken.svg";
 import mail from "../images/mail.svg";
 import telegram from "../images/telegram.svg";
 import bglayer from "../images/bglayer.svg";
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
+import Header from "../Component/Header";
+import Footer from "../Component/Footer";
 import { asyncApiCall } from "../Axios";
 
 const Getnft = () => {

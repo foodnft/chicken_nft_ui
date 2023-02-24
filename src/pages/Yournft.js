@@ -1,7 +1,7 @@
 import React from "react";
 
 import bglayer from "../images/bglayer.svg";
-import Nft from "../Components/Nft";
+import Nft from "../Component/Nft";
 
 const YourNft = () => {
   return (
