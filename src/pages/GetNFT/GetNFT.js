@@ -127,7 +127,7 @@ const Getnft = () => {
             className="w-[100%] absolute top-0 bottom-0 z-[-1] "
           />
           <h1 className="text-[2.4rem] text-center font-bold my-3">Get NFT</h1>
-          <div className="h-[70vh] w-[92%] mx-auto bg-black mt-20 my-2 rounded-xl relative drop-shadow-xl flex flex-col justify-center ">
+          <div className="h-[50vh] w-[92%] mx-auto bg-black mt-20 my-2 rounded-xl relative drop-shadow-xl flex flex-col justify-center ">
             <div className="flex flex-col">
               <h2 className="text-[#fdf523] text-2xl mb-10 text-center mx-5 font-bold">
                 Collect the Tastiest <br /> Chicken NFTs

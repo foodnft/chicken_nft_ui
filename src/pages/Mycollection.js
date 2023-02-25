@@ -7,6 +7,7 @@ import Success from "../images/Success.svg";
 import { Link } from "react-router-dom";
 // import Header from '../components/Header'
 // import Footer from '../components/Footer'
+import pointchicken from '../images/pointchicken.png'
 
 const Mycollection = () => {
   const [nft, setNft] = useState(false);
@@ -38,6 +39,7 @@ const Mycollection = () => {
           >
             Generate NFT
           </button>
+          <img alt="" src={pointchicken} className="w-[80%] left-[50%] absolute translate-x-[-50%] mt-20  "></img>
           {nft ? (
             <div className="h-[50vh] w-[92%] mx-auto bg-black mt-20 my-2 rounded-xl  flex flex-col justify-center drop-shadow-xl">
               <img alt="" src={Success} className="w-[80%] mx-auto"></img>
