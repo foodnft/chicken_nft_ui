@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import bglayer from "../images/bglayer.svg";
 import banner from "../images/banner.png";
@@ -10,8 +11,30 @@ import chicken3 from "../images/chicken3.png";
 import arrowdown from "../images/arrowdown.svg";
 import Header from "../Component/Header";
 import Footer from "../Component/Footer";
+import AccordionItem from "../Component/AccordionItem";
 
 const Home = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  function handleClick(index) {
+    setOpenIndex(index === openIndex ? null : index);
+  }
+
+  const items = [
+    {
+      title: "Accordion Item 1",
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    },
+    {
+      title: "Accordion Item 2",
+      content: "Nulla ac ex vehicula, vehicula magna et, auctor lorem.",
+    },
+    {
+      title: "Accordion Item 3",
+      content: "Proin non sapien ac velit interdum ullamcorper.",
+    },
+  ];
+
   return (
     <div className="max-w-[480px] mx-auto min-h-[100vh] overflow-x-hidden  ">
       <div className="relative ">
@@ -86,6 +109,22 @@ const Home = () => {
               <p className="text-center font-bold text-3xl w-[60%] mx-auto">
                 Claim anothe 25% discount 30 days after fully grown
               </p>
+            </div>
+          </div>
+          <div className=" min-h-[100px] mt-10 ">
+          <h2 className="text-3xl font-bold text-center mb-4" >FAQ</h2>
+
+            <div>
+              {items.map((item, index) => (
+                <AccordionItem
+                  key={index}
+                  index={index}
+                  isOpen={index === openIndex}
+                  title={item.title}
+                  content={item.content}
+                  onClick={handleClick}
+                />
+              ))}
             </div>
           </div>
         </div>
