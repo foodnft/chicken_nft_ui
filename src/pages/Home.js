@@ -43,17 +43,17 @@ const Home = () => {
           <img
             alt=""
             src={bglayer}
-            className="w-[100%] absolute top-0 bottom-0 z-[-1] "
+            className="w-[100%] absolute left-0 top-0 bottom-0 z-[-1] "
           ></img>
           <img
             alt=""
             src={bglayer}
-            className="w-[100%] absolute top-[100vh] bottom-0 z-[-1] "
+            className="w-[100%] absolute left-0  top-[100vh] bottom-0 z-[-1] "
           ></img>
           <img
             alt=""
             src={bglayer}
-            className="w-[100%] absolute top-[200vh] bottom-0 z-[-1] "
+            className="w-[100%] absolute left-0  top-[200vh] bottom-0 z-[-1] "
           ></img>
 
           <img alt="" src={banner} className="w-[100%] mt-10 "></img>

@@ -62,7 +62,7 @@ const YourNft = () => {
           <img
             alt=""
             src={bglayer}
-            className="w-[100%] absolute top-0 bottom-0 z-[-1] "
+            className="w-[100%] absolute left-0  top-0 bottom-0 z-[-1] "
           />
           <h1 className="text-[2.4rem] text-center font-bold my-6">Your Nft</h1>
           {generateNft(count)}

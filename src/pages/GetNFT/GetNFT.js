@@ -142,7 +142,7 @@ const Getnft = () => {
           <img
             alt=""
             src={bglayer}
-            className="w-[100%] absolute top-0 bottom-0 z-[-1] "
+            className="w-[100%] absolute top-0 left-0  bottom-0 z-[-1] "
           />
           <h1 className="text-[2.4rem] text-center font-bold my-3">Get NFT</h1>
           <div className="h-[50vh] w-[92%] mx-auto bg-black mt-20 my-2 rounded-xl relative drop-shadow-xl flex flex-col justify-center ">
