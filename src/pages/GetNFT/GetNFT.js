@@ -5,6 +5,9 @@ import bglayer from "../../images/bglayer.svg";
 import { asyncApiCall } from "../../Axios";
 import Header from "../../Component/Header";
 import Footer from "../../Component/Footer";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useFormik } from "formik";
+import { mobileSchema } from "../../Schema";
 
 import "./style.scss";
 
@@ -35,10 +38,10 @@ const Getnft = () => {
     setDigits(newDigits);
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log("Submitted digits:", digits);
-  }
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   console.log("Submitted digits:", digits);
+  // }
 
   const isSubmitDisabled = digits.length !== 10;
 
@@ -54,13 +57,13 @@ const Getnft = () => {
     // asyncApiCall(url)
     //   .then((res) => {
     //     if (res.status === 200) {
-          navigate("/enterotp");
-      //   }
-      // })
-      // .catch((err) => {
-      //   // navigate("/enterotp");
-      //   console.log(err);
-      // });
+    navigate("/enterotp");
+    //   }
+    // })
+    // .catch((err) => {
+    //   // navigate("/enterotp");
+    //   console.log(err);
+    // });
   };
 
   const verifyOtp = () => {
@@ -116,6 +119,21 @@ const Getnft = () => {
     }, 1000);
   };
 
+  const initialValues = {
+    mobile: "",
+  };
+
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: initialValues,
+      validationSchema: mobileSchema,
+      onSubmit: (values, action) => {
+        console.log("Registertion ", values);
+        // console.log("errors", errors)
+        action.resetForm();
+      },
+    });
+
   return (
     <div className="max-w-[480px] mx-auto min-h-[100vh]  overflow-x-hidden  ">
       <div className="relative overflow-hidden">
@@ -135,35 +153,46 @@ const Getnft = () => {
               {showInput ? (
                 <>
                   <div>
-                    <form className="flex justify-center gap-4">
-                      <select
-                        id="cars"
-                        name="cars"
-                        value={countryCode}
-                        className="h-14 w-[20%] text-center font-bold text-2xl "
-                        onChange={(e) => setCountryCode(e.target.value)}
-                      >
-                        <option value="+60" className="font-bold text-2xl  ">
-                          +60
-                        </option>
-                        <option value="+91" className="font-bold text-2xl  ">
-                          +91
-                        </option>
-                      </select>
-                      <input
-                        type={Number}
-                        value={digits}
-                        onChange={handleDigitsChange}
-                        maxLength={10}
-                        className="h-14 w-[60%] font-bold text-2xl text-center "
-                      ></input>
+                    <form className="flex flex-col  " onSubmit={handleSubmit}>
+                      <div className="flex justify-center gap-4">
+                        <select
+                          id="cars"
+                          name="cars"
+                          value={countryCode}
+                          className="h-14 w-[20%] text-center font-bold text-2xl "
+                          onChange={(e) => setCountryCode(e.target.value)}
+                        >
+                          <option value="+60" className="font-bold text-2xl  ">
+                            +60
+                          </option>
+                          <option value="+91" className="font-bold text-2xl  ">
+                            +91
+                          </option>
+                        </select>
+                        <input
+                          type="number"
+                          maxLength={10}
+                          name="mobile"
+                          value={values.mobile}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          className="h-14 w-[60%] font-bold text-2xl text-center "
+                        ></input>
+                      </div>
+
+                      {errors.mobile && touched.mobile ? (
+                        <p className=" text-red-600  mx-auto mt-4 font-semibold text-lg max-w-[360px] text-center ">
+                          {errors.mobile}
+                        </p>
+                      ) : (
+                        <></>
+                      )}
                     </form>
                   </div>
                   {/* <Link to="/enterotp" className="mx-auto"> */}
                   <button
                     className="bg-[#db7c26] my-10 py-2 inline w-[150px] rounded-3xl mx-auto  font-bold text-lg"
-                    disabled={isSubmitDisabled}
-                    onClick={sendOtp}
+                    type="submit"
                   >
                     Send OTP
                   </button>
