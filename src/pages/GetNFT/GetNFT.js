@@ -8,7 +8,7 @@ import Footer from "../../Component/Footer";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useFormik } from "formik";
 import { mobileSchema } from "../../Schema";
-
+import { Link } from "react-router-dom";
 import "./style.scss";
 
 const Getnft = () => {
@@ -134,6 +134,10 @@ const Getnft = () => {
       },
     });
 
+    let temp = values.mobile;
+    // console.log(temp.toString().length)
+    const isStringLengthTen = temp.toString().length === 10;
+
   return (
     <div className="max-w-[480px] mx-auto min-h-[100vh]  overflow-x-hidden  ">
       <div className="relative overflow-hidden">
@@ -171,14 +175,13 @@ const Getnft = () => {
                         </select>
                         <input
                           type="number"
-                          maxLength={10}                      
+                          maxLength={10}
                           name="mobile"
                           value={values.mobile}
                           onChange={handleChange}
                           onBlur={handleBlur}
                           className="h-14 w-[60%] font-bold text-2xl text-center "
                         ></input>
-                      
                       </div>
 
                       {errors.mobile && touched.mobile ? (
@@ -192,10 +195,16 @@ const Getnft = () => {
                   </div>
                   {/* <Link to="/enterotp" className="mx-auto"> */}
                   <button
-                    className="bg-[#db7c26] my-10 py-2 inline w-[150px] rounded-3xl mx-auto  font-bold text-lg"
+                    className=" my-10 py-2 inline rounded-3xl mx-auto  font-bold text-lg"
                     type="submit"
-                  >
-                    Send OTP
+                  > {isStringLengthTen ? 
+                    <Link to="/enterotp" className="mx-auto bg-[#db7c26] my-10 py-3 px-10 inline w-[150px] rounded-3xl font-bold text-lg cursor-pointer ">
+                      Send OTP
+                    </Link> :
+                    <Link className="mx-auto bg-[#ff9f46] opacity-50 my-10 py-3 px-10 inline w-[150px] rounded-3xl font-bold text-lg cursor-not-allowed" >
+                      Send OTP
+                    </Link>
+                     }
                   </button>
                 </>
               ) : (
