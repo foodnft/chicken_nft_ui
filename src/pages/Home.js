@@ -126,7 +126,7 @@ const Home = () => {
           <div className=" min-h-[100px] mt-10 ">
           <h2 className="text-3xl font-bold text-center mb-4" >FAQ</h2>
 
-            <div>
+            <div className="mb-12">
               {items.map((item, index) => (
                 <AccordionItem
                   key={index}
