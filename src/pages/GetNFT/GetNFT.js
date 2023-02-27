@@ -136,7 +136,7 @@ const Getnft = () => {
 
     let temp = values.mobile;
     // console.log(temp.toString().length)
-    const isStringLengthTen = temp.toString().length === 10;
+    const isStringLengthTen = temp.toString().length >= 10 && temp.toString().length <= 12;
 
   return (
     <div className="max-w-[480px] mx-auto min-h-[100vh]  overflow-x-hidden  ">
@@ -175,7 +175,7 @@ const Getnft = () => {
                         </select>
                         <input
                           type="number"
-                          maxLength={10}
+                          maxLength={12}
                           name="mobile"
                           value={values.mobile}
                           onChange={handleChange}
