@@ -119,7 +119,7 @@ const Home = () => {
                 className="mx-auto my-4"
               ></img>
               <p className="text-center font-bold text-3xl w-[60%] mx-auto">
-                Claim anothe 25% discount 30 days after fully grown
+                Claim another 25% discount 30 days after fully grown
               </p>
             </div>
           </div>
