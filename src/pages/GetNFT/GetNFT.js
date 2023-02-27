@@ -171,13 +171,14 @@ const Getnft = () => {
                         </select>
                         <input
                           type="number"
-                          maxLength={10}
+                          maxLength={10}                      
                           name="mobile"
                           value={values.mobile}
                           onChange={handleChange}
                           onBlur={handleBlur}
                           className="h-14 w-[60%] font-bold text-2xl text-center "
                         ></input>
+                      
                       </div>
 
                       {errors.mobile && touched.mobile ? (
