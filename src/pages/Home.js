@@ -22,16 +22,28 @@ const Home = () => {
 
   const items = [
     {
-      title: "Accordion Item 1",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      title: "What is NFT?",
+      content: "NFT is Non-Fungible Token, a digital collectible that you can own",
     },
     {
-      title: "Accordion Item 2",
-      content: "Nulla ac ex vehicula, vehicula magna et, auctor lorem.",
+      title: "What is Broasted Chicken house NFT?",
+      content: "With Broasted Chicken house NFT which can be used to claim 25% discount on your tasted meal EVERY MONTH, it can also be used as PFP (Profile Picture) on social media",
     },
     {
-      title: "Accordion Item 3",
-      content: "Proin non sapien ac velit interdum ullamcorper.",
+      title: "How to get Broasted Chicken house NFT?",
+      content: "Its Simple!, Register with your mobile number and claim your NFT",
+    },
+    {
+      title: "How to Claim Discount?",
+      content: "Once you have your NFT, you can claim your discount by showing your NFT to the cashier of the restaurant, only dine-in orders are eligible for discount",
+    },
+    {
+      title: "How to can i re-claim Discount?",
+      content: "After claiming your discount, you can Nest your NFT and re-claim your discount once your chicken grows back to full size in aprox 30 days",
+    },
+    {
+      title: "Can the NFT discount be expired?",
+      content: "Yes, if the discount is not claimed within 15 days, the discount will be expired and the NFT will be transferred back to the pool",
     },
   ];
 

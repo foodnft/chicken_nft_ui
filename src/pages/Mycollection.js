@@ -14,8 +14,15 @@ const Mycollection = () => {
   const [nft, setNft] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  const [pointingChicken, setpointingChicken] = useState(true);
+  const [hideButton, setHideButton] = useState(true);
+
   function generateNft() {
     setNft(false);
+
+    setpointingChicken(false);
+    setHideButton(false);
+    
     setIsLoading(true);
     setTimeout(() => {
       setNft(true);
@@ -35,13 +42,13 @@ const Mycollection = () => {
           ></img>
 
           <h1 className="text-[2.4rem] text-center font-bold my-6">Mint NFT</h1>
-          <button
+          {hideButton ? ( <button 
             onClick={generateNft}
             className="bg-[#780116] text-white py-4 w-[92%] rounded-md ml-[4%] mx-auto text-[1.4rem] font-bold drop-shadow-xl"
           >
             Generate NFT
-          </button>
-          <img alt="" src={pointchicken} className="w-[80%] left-[50%] absolute translate-x-[-50%] mt-20  "></img>
+          </button> ) : ( <></> )}
+          {pointingChicken ? ( <img alt="" src={pointchicken} className="w-[80%] left-[50%] absolute translate-x-[-50%] mt-20  "></img> ) : ( <></> )}
           {nft ? (
             <div className="h-[50vh] w-[92%] mx-auto bg-black mt-20 my-2 rounded-xl  flex flex-col justify-center drop-shadow-xl">
               <img alt="" src={Success} className="w-[80%] mx-auto"></img>

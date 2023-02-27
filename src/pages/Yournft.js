@@ -31,7 +31,7 @@ const YourNft = () => {
         return (
           <Nft
             image={step1}
-            buttonName={"Claim & Nest"}
+            buttonName={"Claim Discount"}
             clickgen={incrementCount}
           />
         );
@@ -43,7 +43,7 @@ const YourNft = () => {
         break;
       case 2:
         return (
-          <Nft image={step3} buttonName={"Nesting"} clickgen={incrementCount} />
+          <Nft image={step3} buttonName={" Egg "} clickgen={incrementCount} />
         );
         break;
       case 3:
