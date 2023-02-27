@@ -92,7 +92,7 @@ const Getnft = () => {
   const reSendOtp = () => {
     const apiData = {
       // url: "/otp/resendOtp",
-      url: "/otp/resendOtp",
+      url: "",
       method: "post",
       data: {
         mobileNumber: sessionStorage.getItem("userMobileNumber"),
