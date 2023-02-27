@@ -199,10 +199,10 @@ const Getnft = () => {
                     type="submit"
                   > {isStringLengthTen ? 
                     <Link to="/enterotp" className="mx-auto bg-[#db7c26] my-10 py-3 px-10 inline w-[150px] rounded-3xl font-bold text-lg cursor-pointer ">
-                      Send OTP
+                      Verify Mobile
                     </Link> :
                     <Link className="mx-auto bg-[#ff9f46] opacity-50 my-10 py-3 px-10 inline w-[150px] rounded-3xl font-bold text-lg cursor-not-allowed" >
-                      Send OTP
+                      Verify Mobile
                     </Link>
                      }
                   </button>
