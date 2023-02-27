@@ -20,7 +20,7 @@ const Footer = () => {
           <img alt="" src={mail} className="mr-2 w-6"></img>
           restaurant@broastedchickenhouse.com
         </p>
-        <a href="https://t.me/CocktailDev"><p className="flex m-2 text-xl my-2">
+        <a href="https://t.me/CocktailDev" target="_blank"><p className="flex m-2 text-xl my-2">
           {" "}
           <img alt="" src={telegram} className="mr-2 w-6"></img>@CocktaiLDev
         </p></a>
