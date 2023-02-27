@@ -91,6 +91,7 @@ const Getnft = () => {
 
   const reSendOtp = () => {
     const apiData = {
+      // url: "/otp/resendOtp",
       url: "/otp/resendOtp",
       method: "post",
       data: {
