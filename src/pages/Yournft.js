@@ -15,8 +15,14 @@ import chikengif from "../images/Nft/chicken_gif.gif";
 const YourNft = () => {
   const [count, setCount] = React.useState(0);
 
-  const incrementCount = (count) => {
+  const incrementCount = () => {
     setCount(count + 1);
+    console.log(count);
+  };
+
+  const resetCount = () => {
+    setCount(0);
+    console.log("reset count", count);
   };
 
   function generateNft(count) {
@@ -50,7 +56,7 @@ const YourNft = () => {
           <Nft
             image={step5}
             buttonName={"Young Chicken"}
-            clickgen={incrementCount}
+            clickgen={resetCount}
           />
         );
     }
