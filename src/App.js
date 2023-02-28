@@ -1,24 +1,29 @@
+import { Route, Routes } from "react-router-dom";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from './pages/Home';
-import Getnft from "./pages/Getnft";
+import Home from "./pages/Home";
+import Getnft from "./pages/GetNFT/GetNFT";
 import Mycollection from "./pages/Mycollection";
 import Yournft from "./pages/Yournft";
-import './App.css';
 import Enterotp from "./pages/Enterotp";
+import PrivateRoute from "./Route/PrivateRoute";
+
+import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <Routes>
         <Route path="/*" element={<Home />} />
-        <Route path="/getnft" element={<Getnft/>} />
-        <Route path="/enterotp" element={<Enterotp/>} />
-        <Route path="/mycollection" element={<Mycollection/>} />
-        <Route path="/yournft" element={<Yournft/>} />
-
+        <Route path="/getnft" element={<Getnft />} />
+        <Route path="/mycollection" element={<PrivateRoute />}>
+          <Route path="/mycollection" element={<Mycollection />} />
+        </Route>
+        <Route path="/yournft" element={<PrivateRoute />}>
+          <Route path="/yournft" element={<Yournft />} />
+        </Route>
+        <Route path="/enterotp" element={<Enterotp />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 

@@ -70,8 +70,14 @@ const Enterotp = () => {
     };
     asyncApiCall(url)
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
+          localStorage.setItem(
+            "loggedInData",
+            JSON.stringify({
+              mobileNumber: sessionStorage.getItem("userMobileNumber"),
+              loggedIn: true,
+            })
+          );
           sessionStorage.clear();
           navigate("/myCollection");
         }
