@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Header from "../Component/Header";
-import Footer from "../Component/Footer";
-import bglayer from "../images/bglayer.svg";
-import { asyncApiCall } from "../Axios";
+import Header from "../../Component/Header";
+import Footer from "../../Component/Footer";
+import bglayer from "../../images/bglayer.svg";
+
+import { asyncApiCall } from "../../Axios";
 
 const Enterotp = () => {
   const [resendTimer, setResendTimer] = useState(60);
@@ -57,32 +58,31 @@ const Enterotp = () => {
   };
 
   const verifyOtp = () => {
-    // const otpReceived = `${otpValue}${otpValue1}${otpValue2}${otpValue3}`;
-    // const url = {
-    //   url: "/otp/verifyOtp",
-    //   method: "post",
-    //   data: {
-    //     mobile: `${sessionStorage.getItem("userMobileNumber")}`,
-    //     otpValue: otpReceived,
-    //   },
-    // };
-    // asyncApiCall(url)
-    //   .then((res) => {
-    //     console.log(res);
-    //     if (res.status === 200) {
-    //       sessionStorage.clear();
+    const otpReceived = `${otpValue}${otpValue1}${otpValue2}${otpValue3}`;
+    const url = {
+      url: "/otp/verifyOtp",
+      method: "post",
+      data: {
+        mobile: `${sessionStorage.getItem("userMobileNumber")}`,
+        otpValue: otpReceived,
+      },
+    };
+    asyncApiCall(url)
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          localStorage.setItem("loggedInData", JSON.stringify(res.data));
+          sessionStorage.clear();
           navigate("/myCollection");
-      //   }
-      // })
-      // // .catch((err) => {
-      //   // navigate("/myCollection");
-      //   console.log(err);
-      // });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const reSendOtp = () => {
     const apiData = {
-      // url: "/otp/resendOtp",
       url: "/",
       method: "post",
       data: {
@@ -103,9 +103,10 @@ const Enterotp = () => {
         <Header />
         <div className="relative z-0 bg-[#F9DC5C] p-2 h-[920px]">
           <img
+            alt=""
             src={bglayer}
             className="w-[100%] absolute top-0 bottom-0 z-[-1]"
-          ></img>
+          />
           <h1 className="text-[2.4rem] text-center font-bold my-6">
             Enter OTP
           </h1>
