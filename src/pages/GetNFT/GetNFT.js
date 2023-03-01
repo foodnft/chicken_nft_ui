@@ -11,12 +11,11 @@ import "./style.scss";
 const Getnft = () => {
   const [digits, setDigits] = useState("");
   const [countryCode, setCountryCode] = useState("+60");
-  const [showInput, setShowInput] = useState(true);
+  const [showInput] = useState(true);
   const [optValue, setOtpValue] = useState("");
   const [optValue1, setOtpValue1] = useState("");
   const [optValue2, setOtpValue2] = useState("");
   const [optValue3, setOtpValue3] = useState("");
-  const [resednBtn, setResndBtn] = useState(true);
   const [resendTimer, setResendTimer] = useState(60);
 
   const optResendTimer = useRef();
@@ -25,7 +24,6 @@ const Getnft = () => {
 
   useEffect(() => {
     if (resendTimer === 0) {
-      setResndBtn(false);
       clearInterval(optResendTimer.current);
     }
   }, [resendTimer]);
@@ -35,32 +33,26 @@ const Getnft = () => {
     setDigits(newDigits);
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log("Submitted digits:", digits);
-  }
-
   const isSubmitDisabled = digits.length !== 10;
 
   const sendOtp = () => {
-    // sessionStorage.setItem("userMobileNumber", `${countryCode}${digits}`);
-    // const url = {
-    //   url: "/otp/sendOtp",
-    //   method: "post",
-    //   data: {
-    //     mobile: `${countryCode}${digits}`,
-    //   },
-    // };
-    // asyncApiCall(url)
-    //   .then((res) => {
-    //     if (res.status === 200) {
+    sessionStorage.setItem("userMobileNumber", `${countryCode}${digits}`);
+    const url = {
+      url: "/otp/sendOtp",
+      method: "post",
+      data: {
+        mobile: `${countryCode}${digits}`,
+      },
+    };
+    asyncApiCall(url)
+      .then((res) => {
+        if (res.status === 200) {
           navigate("/enterotp");
-      //   }
-      // })
-      // .catch((err) => {
-      //   // navigate("/enterotp");
-      //   console.log(err);
-      // });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const verifyOtp = () => {

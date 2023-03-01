@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import bglayer from "../images/bglayer.svg";
-import banner from "../images/banner.png";
-import banner2 from "../images/banner2.png";
-import chicken1 from "../images/chicken1.png";
-import chicken2 from "../images/chicken2.png";
-import chicken3 from "../images/chicken3.png";
-import arrowdown from "../images/arrowdown.svg";
-import Header from "../Component/Header";
-import Footer from "../Component/Footer";
+import bglayer from "../../images/bglayer.svg";
+import banner from "../../images/banner.png";
+import banner2 from "../../images/banner2.png";
+import chicken1 from "../../images/chicken1.png";
+import chicken2 from "../../images/chicken2.png";
+import chicken3 from "../../images/chicken3.png";
+import arrowdown from "../../images/arrowdown.svg";
+import Header from "../../Component/Header";
+import Footer from "../../Component/Footer";
 
 const Home = () => {
   return (

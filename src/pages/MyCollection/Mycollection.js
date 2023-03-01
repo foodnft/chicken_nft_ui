@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import chicken from "../images/chicken.svg";
-import mail from "../images/mail.svg";
-import telegram from "../images/telegram.svg";
-import bglayer from "../images/bglayer.svg";
-import Success from "../images/Success.svg";
 import { Link } from "react-router-dom";
-// import Header from '../components/Header'
-// import Footer from '../components/Footer'
+
+import chicken from "../../images/chicken.svg";
+import bglayer from "../../images/bglayer.svg";
+import Success from "../../images/Success.svg";
+import Header from "../../Component/Header";
+import Footer from "../../Component/Footer";
 
 const Mycollection = () => {
   const [nft, setNft] = useState(false);
@@ -24,6 +23,7 @@ const Mycollection = () => {
   return (
     <div className="max-w-[480px] mx-auto min-h-[100vh] overflow-x-hidden  ">
       <div className="relative overflow-hidden">
+        <Header />
         <div className="relative z-0 bg-[#F9DC5C] p-2 h-[920px]">
           <img
             alt=""
@@ -69,6 +69,7 @@ const Mycollection = () => {
             <></>
           )}
         </div>
+        <Footer />
       </div>
     </div>
   );

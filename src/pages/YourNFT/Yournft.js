@@ -1,9 +1,9 @@
 import React from "react";
 
-import bglayer from "../images/bglayer.svg";
-import Nft from "../Component/Nft";
-import Header from "../Component/Header";
-import Footer from "../Component/Footer";
+import bglayer from "../../images/bglayer.svg";
+import Nft from "../../Component/Nft";
+import Header from "../../Component/Header";
+import Footer from "../../Component/Footer";
 
 const YourNft = () => {
   return (
