@@ -6,7 +6,7 @@ import bglayer from "../images/bglayer.svg";
 import Success from "../images/Success.svg";
 import { Link } from "react-router-dom";
 // import Footer from '../components/Footer'
-import pointchicken from '../images/pointchicken.png'
+import pointchicken from "../images/pointchicken.png";
 import Header from "../Component/Header";
 import Footer from "../Component/Footer";
 
@@ -26,7 +26,7 @@ const Mycollection = () => {
 
   return (
     <div className="max-w-[480px] mx-auto min-h-[100vh] overflow-x-hidden  ">
-      <Header/>
+      <Header />
       <div className="relative overflow-hidden">
         <div className="relative z-0 bg-[#F9DC5C] p-2 h-[920px]">
           <img
@@ -42,7 +42,11 @@ const Mycollection = () => {
           >
             Generate NFT
           </button>
-          <img alt="" src={pointchicken} className="w-[80%] left-[50%] absolute translate-x-[-50%] mt-20  "></img>
+          <img
+            alt=""
+            src={pointchicken}
+            className="w-[80%] left-[50%] absolute translate-x-[-50%] mt-20  "
+          ></img>
           {nft ? (
             <div className="h-[50vh] w-[92%] mx-auto bg-black mt-20 my-2 rounded-xl  flex flex-col justify-center drop-shadow-xl">
               <img alt="" src={Success} className="w-[80%] mx-auto"></img>
@@ -75,7 +79,7 @@ const Mycollection = () => {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

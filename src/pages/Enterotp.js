@@ -73,13 +73,13 @@ const Enterotp = () => {
     //     console.log(res);
     //     if (res.status === 200) {
     //       sessionStorage.clear();
-          navigate("/myCollection");
-      //   }
-      // })
-      // // .catch((err) => {
-      //   // navigate("/myCollection");
-      //   console.log(err);
-      // });
+    navigate("/myCollection");
+    //   }
+    // })
+    // // .catch((err) => {
+    //   // navigate("/myCollection");
+    //   console.log(err);
+    // });
   };
 
   const reSendOtp = () => {

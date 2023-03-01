@@ -11,7 +11,6 @@ import step4 from "../images/Nft/step4.png";
 import step5 from "../images/Nft/step5.png";
 import chikengif from "../images/Nft/chicken_gif.gif";
 
-
 const YourNft = () => {
   const [count, setCount] = React.useState(0);
 
@@ -41,7 +40,11 @@ const YourNft = () => {
         break;
       case 1:
         return (
-          <Nft image={chikengif} buttonName={"Nesting"} clickgen={incrementCount} />
+          <Nft
+            image={chikengif}
+            buttonName={"Nesting"}
+            clickgen={incrementCount}
+          />
         );
         break;
       case 2:
