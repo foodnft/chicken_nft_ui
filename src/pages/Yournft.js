@@ -21,35 +21,35 @@ const YourNft = () => {
   };
 
   //Reset count
+
   const resetCount = () => {
     setCount(0);
     console.log("reset count", count);
   };
 
   //Switch cases for nft
+
   function generateNft(count) {
     switch (count) {
       case 0:
         return (
           <Nft
             image={step1}
-            buttonName={"Claim & Nest"}
+            buttonName={"Claim Discount"}
+
             clickgen={incrementCount}
           />
         );
         break;
       case 1:
         return (
-          <Nft
-            image={chikengif}
-            buttonName={"Nesting"}
-            clickgen={incrementCount}
-          />
+
+          <Nft image={chikengif} buttonName={"Nesting"} clickgen={incrementCount} />
         );
         break;
       case 2:
         return (
-          <Nft image={step3} buttonName={"Nesting"} clickgen={incrementCount} />
+          <Nft image={step3} buttonName={" Egg "} clickgen={incrementCount} />
         );
         break;
       case 3:

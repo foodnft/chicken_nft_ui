@@ -16,24 +16,36 @@ import AccordionItem from "../Component/AccordionItem";
 const Home = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
-  //Accordion function
   function handleClick(index) {
     setOpenIndex(index === openIndex ? null : index);
   }
 
-  //Accordion data
+
   const items = [
     {
-      title: "Accordion Item 1",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      title: "What is NFT?",
+      content: "NFT is Non-Fungible Token, a digital collectible that you can own",
     },
     {
-      title: "Accordion Item 2",
-      content: "Nulla ac ex vehicula, vehicula magna et, auctor lorem.",
+      title: "What is Broasted Chicken house NFT?",
+      content: "With Broasted Chicken house NFT which can be used to claim 25% discount on your tasted meal EVERY MONTH, it can also be used as PFP (Profile Picture) on social media",
     },
     {
-      title: "Accordion Item 3",
-      content: "Proin non sapien ac velit interdum ullamcorper.",
+      title: "How to get Broasted Chicken house NFT?",
+      content: "Its Simple!, Register with your mobile number and claim your NFT",
+    },
+    {
+      title: "How to Claim Discount?",
+      content: "Once you have your NFT, you can claim your discount by showing your NFT to the cashier of the restaurant, only dine-in orders are eligible for discount",
+    },
+    {
+      title: "How to can i re-claim Discount?",
+      content: "After claiming your discount, you can Nest your NFT and re-claim your discount once your chicken grows back to full size in aprox 30 days",
+    },
+    {
+      title: "Can the NFT discount be expired?",
+      content: "Yes, if the discount is not claimed within 15 days, the discount will be expired and the NFT will be transferred back to the pool",
+  
     },
   ];
 
@@ -62,10 +74,7 @@ const Home = () => {
           <img alt="" src={banner2} className="w-[100%] mt-10 "></img>
           <Link to="/getnft">
             <button
-              className="w-[94%] bg-[#c32f27] translate-x-[-50%] ml-[50%] text-white py-4 my-8 text-[1.4rem] rounded-md font-bold drop-shadow-xl
-
- "
-            >
+              className="w-[94%] bg-[#c32f27] translate-x-[-50%] ml-[50%] text-white py-4 my-8 text-[1.4rem] rounded-md font-bold drop-shadow-xl">
               Click here to start
             </button>
           </Link>
@@ -109,14 +118,16 @@ const Home = () => {
                 className="mx-auto my-4"
               ></img>
               <p className="text-center font-bold text-3xl w-[60%] mx-auto">
-                Claim anothe 25% discount 30 days after fully grown
+                Claim another 25% discount 30 days after fully grown
               </p>
             </div>
           </div>
           <div className=" min-h-[100px] mt-10 ">
-            <h2 className="text-3xl font-bold text-center mb-4">FAQ</h2>
 
-            <div>
+          <h2 className="text-3xl font-bold text-center mb-4" >FAQ</h2>
+
+            <div className="mb-12">
+
               {items.map((item, index) => (
                 <AccordionItem
                   key={index}

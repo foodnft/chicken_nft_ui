@@ -48,24 +48,25 @@ const Getnft = () => {
   const isSubmitDisabled = digits.length !== 10;
 
   const sendOtp = () => {
-    // this method will call the API to call
-    sessionStorage.setItem("userMobileNumber", `${countryCode}${digits}`);
-    const url = {
-      url: "/otp/sendOtp",
-      method: "post",
-      data: {
-        mobile: `${countryCode}${digits}`,
-      },
-    };
-    asyncApiCall(url)
-      .then((res) => {
-        if (res.status === 200) {
-          navigate("/enterotp");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // sessionStorage.setItem("userMobileNumber", `${countryCode}${digits}`);
+    // const url = {
+    //   url: "/otp/sendOtp",
+    //   method: "post",
+    //   data: {
+    //     mobile: `${countryCode}${digits}`,
+    //   },
+    // };
+    // asyncApiCall(url)
+    //   .then((res) => {
+    //     if (res.status === 200) {
+    navigate("/enterotp");
+    //   }
+    // })
+    // .catch((err) => {
+    //   // navigate("/enterotp");
+    //   console.log(err);
+    // });
+
   };
 
   // verify otp
@@ -97,7 +98,8 @@ const Getnft = () => {
   const reSendOtp = () => {
     // this call the API for resending the OTP
     const apiData = {
-      url: "/otp/resendOtp",
+      // url: "/otp/resendOtp",
+      url: "",
       method: "post",
       data: {
         mobileNumber: sessionStorage.getItem("userMobileNumber"),
@@ -133,6 +135,7 @@ const Getnft = () => {
   };
 
   //Formik validation
+
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
@@ -144,8 +147,9 @@ const Getnft = () => {
       },
     });
 
-  let temp = values.mobile;
-  const isStringLengthTen = temp.toString().length === 10;
+    let temp = values.mobile;
+    // console.log(temp.toString().length)
+    const isStringLengthTen = temp.toString().length >= 10 && temp.toString().length <= 12;
 
   return (
     <div className="max-w-[480px] mx-auto min-h-[100vh]  overflow-x-hidden  ">
@@ -184,7 +188,9 @@ const Getnft = () => {
                         </select>
                         <input
                           type="number"
-                          maxLength={10}
+
+                          maxLength={12}
+
                           name="mobile"
                           value={values.mobile}
                           onChange={handleChange}
@@ -206,20 +212,16 @@ const Getnft = () => {
                   <button
                     className=" my-10 py-2 inline rounded-3xl mx-auto  font-bold text-lg"
                     type="submit"
-                  >
-                    {" "}
-                    {isStringLengthTen ? (
-                      <Link
-                        to="/enterotp"
-                        className="mx-auto bg-[#db7c26] my-10 py-3 px-10 inline w-[150px] rounded-3xl font-bold text-lg cursor-pointer "
-                      >
-                        Send OTP
-                      </Link>
-                    ) : (
-                      <Link className="mx-auto bg-[#ff9f46] opacity-50 my-10 py-3 px-10 inline w-[150px] rounded-3xl font-bold text-lg cursor-not-allowed">
-                        Send OTP
-                      </Link>
-                    )}
+
+                  > {isStringLengthTen ? 
+                    <Link to="/enterotp" className="mx-auto bg-[#db7c26] my-10 py-3 px-10 inline w-[150px] rounded-3xl font-bold text-lg cursor-pointer ">
+                      Verify Mobile
+                    </Link> :
+                    <Link className="mx-auto bg-[#ff9f46] opacity-50 my-10 py-3 px-10 inline w-[150px] rounded-3xl font-bold text-lg cursor-not-allowed" >
+                      Verify Mobile
+                    </Link>
+                     }
+
                   </button>
                 </>
               ) : (
