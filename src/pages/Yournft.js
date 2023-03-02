@@ -11,19 +11,23 @@ import step4 from "../images/Nft/step4.png";
 import step5 from "../images/Nft/step5.png";
 import chikengif from "../images/Nft/chicken_gif.gif";
 
-
 const YourNft = () => {
   const [count, setCount] = React.useState(0);
 
+  //Swich casese increment count
   const incrementCount = () => {
     setCount(count + 1);
     console.log(count);
   };
 
+  //Reset count
+
   const resetCount = () => {
     setCount(0);
     console.log("reset count", count);
   };
+
+  //Switch cases for nft
 
   function generateNft(count) {
     switch (count) {
@@ -32,12 +36,14 @@ const YourNft = () => {
           <Nft
             image={step1}
             buttonName={"Claim Discount"}
+
             clickgen={incrementCount}
           />
         );
         break;
       case 1:
         return (
+
           <Nft image={chikengif} buttonName={"Nesting"} clickgen={incrementCount} />
         );
         break;

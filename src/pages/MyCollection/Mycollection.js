@@ -1,30 +1,19 @@
 import React, { useState } from "react";
-import chicken from "../images/chicken.svg";
-import mail from "../images/mail.svg";
-import telegram from "../images/telegram.svg";
-import bglayer from "../images/bglayer.svg";
-import Success from "../images/Success.svg";
 import { Link } from "react-router-dom";
-// import Footer from '../components/Footer'
 
-import pointchicken from '../images/pointchicken.png'
-
-import pointchicken from "../images/pointchicken.png";
+import chicken from "../../images/chicken.svg";
+import bglayer from "../../images/bglayer.svg";
+import Success from "../../images/Success.svg";
+import Header from "../../Component/Header";
+import Footer from "../../Component/Footer";
 
 const Mycollection = () => {
   const [nft, setNft] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-
-  const [pointingChicken, setpointingChicken] = useState(true);
-  const [hideButton, setHideButton] = useState(true);
-
   function generateNft() {
+    // this method will generate, mint, claim, ETC the NFT
     setNft(false);
-
-    setpointingChicken(false);
-    setHideButton(false);
-    
     setIsLoading(true);
     setTimeout(() => {
       setNft(true);
@@ -34,27 +23,22 @@ const Mycollection = () => {
 
   return (
     <div className="max-w-[480px] mx-auto min-h-[100vh] overflow-x-hidden  ">
-
-      <Header/>
-
       <div className="relative overflow-hidden">
+        <Header />
         <div className="relative z-0 bg-[#F9DC5C] p-2 h-[920px]">
           <img
             alt=""
             src={bglayer}
-            className="w-[100%] absolute top-0 bottom-0 z-[-1] left-0  "
+            className="w-[100%] absolute top-0 bottom-0 z-[-1] "
           ></img>
 
           <h1 className="text-[2.4rem] text-center font-bold my-6">Mint NFT</h1>
-          {hideButton ? ( <button 
+          <button
             onClick={generateNft}
             className="bg-[#780116] text-white py-4 w-[92%] rounded-md ml-[4%] mx-auto text-[1.4rem] font-bold drop-shadow-xl"
           >
             Generate NFT
-
-          </button> ) : ( <></> )}
-          {pointingChicken ? ( <img alt="" src={pointchicken} className="w-[80%] left-[50%] absolute translate-x-[-50%] mt-20  "></img> ) : ( <></> )}
-
+          </button>
           {nft ? (
             <div className="h-[50vh] w-[92%] mx-auto bg-black mt-20 my-2 rounded-xl  flex flex-col justify-center drop-shadow-xl">
               <img alt="" src={Success} className="w-[80%] mx-auto"></img>
@@ -86,9 +70,8 @@ const Mycollection = () => {
             <></>
           )}
         </div>
+        <Footer />
       </div>
-      <Footer/>
-
     </div>
   );
 };

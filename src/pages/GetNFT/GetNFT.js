@@ -26,6 +26,7 @@ const Getnft = () => {
 
   const navigate = useNavigate();
 
+  //set timer for resend otp
   useEffect(() => {
     if (resendTimer === 0) {
       setResndBtn(false);
@@ -33,6 +34,7 @@ const Getnft = () => {
     }
   }, [resendTimer]);
 
+  //Handle input change
   function handleDigitsChange(event) {
     const newDigits = event.target.value.replace(/[^0-9]/g, "");
     setDigits(newDigits);
@@ -64,9 +66,12 @@ const Getnft = () => {
     //   // navigate("/enterotp");
     //   console.log(err);
     // });
+
   };
 
+  // verify otp
   const verifyOtp = () => {
+    // this methode will call the API to veify the OTP
     const otpReceived = `${optValue}${optValue1}${optValue2}${optValue3}`;
     const url = {
       url: "/otp/verifyOtp",
@@ -89,7 +94,9 @@ const Getnft = () => {
       });
   };
 
+  // resend otp
   const reSendOtp = () => {
+    // this call the API for resending the OTP
     const apiData = {
       // url: "/otp/resendOtp",
       url: "",
@@ -106,6 +113,7 @@ const Getnft = () => {
       .catch((err) => console.log(err));
   };
 
+  // handle otp input
   const handleKeyPress = (event) => {
     const keyCode = event.keyCode || event.which;
     const keyValue = String.fromCharCode(keyCode);
@@ -114,7 +122,9 @@ const Getnft = () => {
     }
   };
 
+  //start timer for resend otp
   const startTimer = () => {
+    // This method will start the timer
     optResendTimer.current = setInterval(() => {
       setResendTimer((previousTime) => (previousTime -= 1));
     }, 1000);
@@ -123,6 +133,8 @@ const Getnft = () => {
   const initialValues = {
     mobile: "",
   };
+
+  //Formik validation
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
@@ -176,7 +188,9 @@ const Getnft = () => {
                         </select>
                         <input
                           type="number"
+
                           maxLength={12}
+
                           name="mobile"
                           value={values.mobile}
                           onChange={handleChange}
@@ -198,6 +212,7 @@ const Getnft = () => {
                   <button
                     className=" my-10 py-2 inline rounded-3xl mx-auto  font-bold text-lg"
                     type="submit"
+
                   > {isStringLengthTen ? 
                     <Link to="/enterotp" className="mx-auto bg-[#db7c26] my-10 py-3 px-10 inline w-[150px] rounded-3xl font-bold text-lg cursor-pointer ">
                       Verify Mobile
@@ -206,6 +221,7 @@ const Getnft = () => {
                       Verify Mobile
                     </Link>
                      }
+
                   </button>
                 </>
               ) : (

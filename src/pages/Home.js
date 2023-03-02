@@ -20,6 +20,7 @@ const Home = () => {
     setOpenIndex(index === openIndex ? null : index);
   }
 
+
   const items = [
     {
       title: "What is NFT?",
@@ -44,6 +45,7 @@ const Home = () => {
     {
       title: "Can the NFT discount be expired?",
       content: "Yes, if the discount is not claimed within 15 days, the discount will be expired and the NFT will be transferred back to the pool",
+  
     },
   ];
 
@@ -72,10 +74,7 @@ const Home = () => {
           <img alt="" src={banner2} className="w-[100%] mt-10 "></img>
           <Link to="/getnft">
             <button
-              className="w-[94%] bg-[#c32f27] translate-x-[-50%] ml-[50%] text-white py-4 my-8 text-[1.4rem] rounded-md font-bold drop-shadow-xl
-
- "
-            >
+              className="w-[94%] bg-[#c32f27] translate-x-[-50%] ml-[50%] text-white py-4 my-8 text-[1.4rem] rounded-md font-bold drop-shadow-xl">
               Click here to start
             </button>
           </Link>
@@ -124,9 +123,11 @@ const Home = () => {
             </div>
           </div>
           <div className=" min-h-[100px] mt-10 ">
+
           <h2 className="text-3xl font-bold text-center mb-4" >FAQ</h2>
 
             <div className="mb-12">
+
               {items.map((item, index) => (
                 <AccordionItem
                   key={index}

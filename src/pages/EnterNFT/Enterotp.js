@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Header from "../Component/Header";
-import Footer from "../Component/Footer";
-import bglayer from "../images/bglayer.svg";
-import { asyncApiCall } from "../Axios";
+import Header from "../../Component/Header";
+import Footer from "../../Component/Footer";
+import bglayer from "../../images/bglayer.svg";
+
+import { asyncApiCall } from "../../Axios";
 
 const Enterotp = () => {
   const [resendTimer, setResendTimer] = useState(60);
@@ -16,8 +17,8 @@ const Enterotp = () => {
   const optResendTimer = useRef();
   const navigate = useNavigate();
 
-  // Handle key press event of number
   const handleKeyPress = (event, index) => {
+    // this methode collects the otp value and stores it
     const keyCode = event.keyCode || event.which;
     const keyValue = String.fromCharCode(keyCode);
     if (!/^\d$/.test(keyValue)) {
@@ -40,51 +41,54 @@ const Enterotp = () => {
     }
   };
 
-  // Resend timer
   useEffect(() => {
     if (resendTimer === 0) {
+      //clears or stops the timer if condition meets
       clearInterval(optResendTimer.current);
     }
   }, [resendTimer]);
 
   useEffect(() => {
+    //  When page loads it stars the timer for OTP to be resend
     startTimer();
     return () => clearInterval(optResendTimer.current);
   }, []);
 
   const startTimer = () => {
+    // this metohd will reset the timer and start again when OTP is resend
     optResendTimer.current = setInterval(() => {
       setResendTimer((previousTime) => (previousTime -= 1));
     }, 1000);
   };
 
   const verifyOtp = () => {
-    // const otpReceived = `${otpValue}${otpValue1}${otpValue2}${otpValue3}`;
-    // const url = {
-    //   url: "/otp/verifyOtp",
-    //   method: "post",
-    //   data: {
-    //     mobile: `${sessionStorage.getItem("userMobileNumber")}`,
-    //     otpValue: otpReceived,
-    //   },
-    // };
-    // asyncApiCall(url)
-    //   .then((res) => {
-    //     console.log(res);
-    //     if (res.status === 200) {
-    //       sessionStorage.clear();
-    navigate("/myCollection");
-    //   }
-    // })
-    // // .catch((err) => {
-    //   // navigate("/myCollection");
-    //   console.log(err);
-    // });
+    // this method sends the OTP to be verified
+    const otpReceived = `${otpValue}${otpValue1}${otpValue2}${otpValue3}`;
+    const url = {
+      url: "/otp/verifyOtp",
+      method: "post",
+      data: {
+        mobile: `${sessionStorage.getItem("userMobileNumber")}`,
+        otpValue: otpReceived,
+      },
+    };
+    asyncApiCall(url)
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          localStorage.setItem("loggedInData", JSON.stringify(res.data));
+          sessionStorage.clear();
+          navigate("/myCollection");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const reSendOtp = () => {
+    // this methode will call api to Resend the OTP
     const apiData = {
-      // url: "/otp/resendOtp",
       url: "/",
       method: "post",
       data: {
@@ -105,9 +109,10 @@ const Enterotp = () => {
         <Header />
         <div className="relative z-0 bg-[#F9DC5C] p-2 h-[920px]">
           <img
+            alt=""
             src={bglayer}
-            className="w-[100%] left-0  absolute top-0 bottom-0 z-[-1]"
-          ></img>
+            className="w-[100%] absolute top-0 bottom-0 z-[-1]"
+          />
           <h1 className="text-[2.4rem] text-center font-bold my-6">
             Enter OTP
           </h1>

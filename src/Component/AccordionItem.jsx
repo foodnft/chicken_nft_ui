@@ -4,13 +4,13 @@ function AccordionItem(props) {
   const { index, isOpen, title, content, onClick } = props;
 
   return (
-    <div className="px-3 ">
+
+    <div className="px-3">
       <div
         className="flex justify-between items-center p-4 cursor-pointer select-none text-white bg-[#151312] border-t-[1px] border-b-[1px] border-gray-100"
         onClick={() => onClick(index)}
       >
         <div className="text-2xl">{title}</div>
-    
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
