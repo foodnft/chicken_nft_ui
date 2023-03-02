@@ -1,7 +1,7 @@
 import Axios from "axios";
 
-const url = "http://localhost:5000/api/v1";
-// const url = "https://bchbackend.herokuapp.com/api/v1";
+// const url = "http://localhost:5000/api/v1";
+const url = "https://bchbackend.herokuapp.com/api/v1";
 
 const axios = Axios.create({
   baseURL: url,
