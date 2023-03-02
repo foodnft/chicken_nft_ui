@@ -18,6 +18,7 @@ const Enterotp = () => {
   const navigate = useNavigate();
 
   const handleKeyPress = (event, index) => {
+    // this methode collects the otp value and stores it
     const keyCode = event.keyCode || event.which;
     const keyValue = String.fromCharCode(keyCode);
     if (!/^\d$/.test(keyValue)) {
@@ -42,22 +43,26 @@ const Enterotp = () => {
 
   useEffect(() => {
     if (resendTimer === 0) {
+      //clears or stops the timer if condition meets
       clearInterval(optResendTimer.current);
     }
   }, [resendTimer]);
 
   useEffect(() => {
+    //  When page loads it stars the timer for OTP to be resend
     startTimer();
     return () => clearInterval(optResendTimer.current);
   }, []);
 
   const startTimer = () => {
+    // this metohd will reset the timer and start again when OTP is resend
     optResendTimer.current = setInterval(() => {
       setResendTimer((previousTime) => (previousTime -= 1));
     }, 1000);
   };
 
   const verifyOtp = () => {
+    // this method sends the OTP to be verified
     const otpReceived = `${otpValue}${otpValue1}${otpValue2}${otpValue3}`;
     const url = {
       url: "/otp/verifyOtp",
@@ -82,6 +87,7 @@ const Enterotp = () => {
   };
 
   const reSendOtp = () => {
+    // this methode will call api to Resend the OTP
     const apiData = {
       url: "/",
       method: "post",

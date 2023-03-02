@@ -12,6 +12,7 @@ const Mycollection = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   function generateNft() {
+    // this method will generate, mint, claim, ETC the NFT
     setNft(false);
     setIsLoading(true);
     setTimeout(() => {

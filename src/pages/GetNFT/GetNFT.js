@@ -36,6 +36,7 @@ const Getnft = () => {
   const isSubmitDisabled = digits.length !== 10;
 
   const sendOtp = () => {
+    // this method will call the API to call
     sessionStorage.setItem("userMobileNumber", `${countryCode}${digits}`);
     const url = {
       url: "/otp/sendOtp",
@@ -56,6 +57,7 @@ const Getnft = () => {
   };
 
   const verifyOtp = () => {
+    // this methode will call the API to veify the OTP
     const otpReceived = `${optValue}${optValue1}${optValue2}${optValue3}`;
     const url = {
       url: "/otp/verifyOtp",
@@ -79,6 +81,7 @@ const Getnft = () => {
   };
 
   const reSendOtp = () => {
+    // this call the API for resending the OTP
     const apiData = {
       url: "/otp/resendOtp",
       method: "post",
@@ -103,6 +106,7 @@ const Getnft = () => {
   };
 
   const startTimer = () => {
+    // This method will start the timer
     optResendTimer.current = setInterval(() => {
       setResendTimer((previousTime) => (previousTime -= 1));
     }, 1000);
