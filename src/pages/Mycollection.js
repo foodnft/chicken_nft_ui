@@ -5,11 +5,9 @@ import telegram from "../images/telegram.svg";
 import bglayer from "../images/bglayer.svg";
 import Success from "../images/Success.svg";
 import { Link } from "react-router-dom";
-// import Footer from '../components/Footer'
-
-import pointchicken from '../images/pointchicken.png'
-
-import pointchicken from "../images/pointchicken.png";
+import Footer from '../Component/Footer';
+import Header from '../Component/Header';
+import pointchicken from '../images/pointchicken.png';
 
 const Mycollection = () => {
   const [nft, setNft] = useState(false);
