@@ -15,17 +15,7 @@ import chikengif from "../images/Nft/chicken_gif.gif";
 
 const YourNft = () => {
   const [count, setCount] = React.useState(0);
-  const [result, setResult] = useState("");
-
-const Qr = () => {
-   
-  
-    return (
-      <></>
-    );
-  };
-  
-  
+  const [result, setResult] = useState("");  
 
   //Swich casese increment count
   const incrementCount = () => {
@@ -45,13 +35,6 @@ const Qr = () => {
   function generateNft(count) {
 
     const delay = 500;
-  
-    // const previewStyle = {
-    //   height: 240,
-    //   width: 320
-    // };
-  
-    
   
     const handleScan = (result) => {
       if (result) {
