@@ -8,17 +8,28 @@ import {
 } from "@wagmi/core";
 import { publicProvider } from "@wagmi/core/providers/public";
 import { InjectedConnector } from "@wagmi/core/connectors/injected";
-// import Header from "../Component/Header";
-// import Footer from "../Component/Footer";
-// interface {
+import { ConnectorWagmi } from "../Util/Connector";
 
-// }
 const Wagmi = () => {
+  const [ensName, setEnsName] = React.useState<any>("");
+  const [address, setAddress] = React.useState<any>(null);
+  const [showENSName, setShowENSName] = React.useState<any>(false);
 
-  const [ensName, setEnsName] = React.useState<any>(null);
+  const test = () => {
+    return (
+      <>
+      <p>This is get ENS NAme</p>
+      </>
+    )
+  }
+  
     useEffect(() => {
-    GetENSName();
-  } , []);
+      
+      if(!address){
+        console.log("address111", address)
+        GetENSName();
+      }
+  } , [address]);
   const { chains, provider, webSocketProvider } = configureChains(
     [mainnet],
     [publicProvider()]
@@ -28,35 +39,56 @@ const Wagmi = () => {
     provider,
     webSocketProvider,
   });
-  let ensName2: any = "";
+  const handleClick = () => {
+    
+    GetENSName();
+  };
   const GetENSName = async () => {
-    console.log(111);
+    
     try {
-      const address = await connect({
-        connector: new InjectedConnector(),
-      });
-
-      ensName2 = await fetchEnsName({ address: address.account });
-      console.log(ensName2);
-      setEnsName(ensName2);
+  
+        ConnectorWagmi().then((res:any) => { 
+          console.log("res", res)
+          setAddress(res)
+        })
+  
+      // setAddress(
+      //   await connect({
+      //     connector: new InjectedConnector(),
+      //   })
+      // );
+      
+      // console.log("address", address.account)
+      setEnsName(await fetchEnsName({ address: address.account }))
+      setShowENSName(true);
+      // console.log("ensName", ensName)
     } catch (error) {
-      console.log(123);
       console.log(error);
     }
-    // return (
-    //   <div>
-    //     <>{ensName}</>
-    //     <p>444</p>
-    //   </div>
-    // )
+    return (
+      <>
+      
+      </>
+    )
   };
   return (
     <div>
-      
-      <p>123</p>
-      <button onClick={GetENSName}>GetENSName</button>
-      {ensName}
-      {/* <p>{ensName}</p> */}
+      <h3>Get ENS name for the address {address?.account} </h3>
+      <br></br>
+      <button
+        onClick={() => handleClick()}
+        className="bg-[#780116] text-white py-4 w-[92%] rounded-md ml-[4%] mx-auto text-[1.4rem] font-bold drop-shadow-xl"
+      >
+        Show ENS Name
+      </button>
+      {showENSName ? (
+        <>
+          <b>{ensName}</b>
+        </>
+      ) : (
+        <></>
+      )}
+      <>{test()}</>
     </div>
   );
 };
