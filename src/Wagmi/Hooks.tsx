@@ -2,12 +2,12 @@ import { useAccount, useEnsName } from 'wagmi'
 
 export default function Account() {
   const { address } = useAccount()
-  const { data: ensName } = useEnsName({ address })
-  console.log(address)
+//   const { data: ensName } = useEnsName({ address })
+console.log("address", address)
   return (
     <div>
-      {ensName ?? address}
-      {ensName ? ` (${address})` : null}
+      {address}
+      {/* {ensName ? ` (${address})` : null} */}
     </div>
   )
 }
