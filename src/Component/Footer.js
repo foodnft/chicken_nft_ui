@@ -13,7 +13,7 @@ const Footer = () => {
         </h3>
         <p className="flex m-2 text-xl my-2">
           {" "}
-          <img alt="" src={mail} className="mr-2 w-6 "></img>your@anonhelper.com
+          <img alt="" src={mail} className="mr-2 w-6 "></img>dhaileytaha@gmail.com
         </p>
         {/* <p className="flex m-2 text-xl my-2">
           {" "}
